@@ -1,4 +1,3 @@
-import sum from './sum';
+import budget from './budget_controller';
 
-const total = sum(10, 5);
-console.log(total);
+budget();

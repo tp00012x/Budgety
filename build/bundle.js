@@ -70,14 +70,13 @@
 "use strict";
 
 
-var _sum = __webpack_require__(1);
+var _budget_controller = __webpack_require__(1);
 
-var _sum2 = _interopRequireDefault(_sum);
+var _budget_controller2 = _interopRequireDefault(_budget_controller);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var total = (0, _sum2.default)(10, 5);
-console.log(total);
+(0, _budget_controller2.default)();
 
 /***/ }),
 /* 1 */
@@ -87,13 +86,40 @@ console.log(total);
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
-var sum = function sum(a, b) {
-  return a + b;
-};
+exports.default = budget;
+function budget() {
 
-exports.default = sum;
+    var addDescription = function addDescription() {
+
+        var button = document.querySelector(".add__btn");
+        var descriptions = [{
+            description: "Salary",
+            amount: "+ 2,100.00"
+        }, {
+            description: "Sold Car",
+            amount: "+ 1,500.00"
+        }];
+
+        descriptions.forEach(function (element) {
+            document.querySelector(".item__description").innerHTML = element.description;
+            // document.querySelector(".item__amount").innerHTML = element.amount;
+            console.log(element.description);
+            console.log(element.amount);
+        });
+
+        button.addEventListener("click", function () {
+
+            // let description = document.querySelector(".add__description");
+            // descriptions.push(description.value);
+            // console.log(descriptions);
+            // description.value = "";
+        });
+    };
+
+    addDescription();
+};
 
 /***/ })
 /******/ ]);
