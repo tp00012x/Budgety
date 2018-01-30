@@ -20,5 +20,8 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tp00012x/Budgety/issues"
+  },
+  "dependencies": {
+    "mustache": "^2.3.0"
   }
 }

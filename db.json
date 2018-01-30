@@ -1,0 +1,22 @@
+{
+  "income": [
+    {
+      "id": 1,
+      "description": "Salary",
+      "amount": "+ 2,100.00"
+    },
+    {
+      "id": 2,
+      "description": "Sold Car",
+      "amount": "+ 1,500.00"
+    }
+  ],
+
+  "expenses": [
+    {
+      "id": 1,
+      "description": "Guitar",
+      "amount": "- 5,100.00"
+    }
+  ]
+}
