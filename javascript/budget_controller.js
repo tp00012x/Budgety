@@ -15,5 +15,7 @@ export default function budget() {
                 addList(list)
             });
         }
-    })
+    });
+
+    console.log('smamdfsdfs');
 };
