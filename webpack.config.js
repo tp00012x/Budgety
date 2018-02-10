@@ -1,16 +1,7 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
-
-let pathsToClean = [
-    'build'
-];
-
-let cleanOptions = {
-    watch: true
-};
 
 const config = {
     entry: {
@@ -18,7 +9,7 @@ const config = {
     },
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: '[name].[chunkhash].js'
+        filename: '[name].js'
     },
     module: {
         rules: [
@@ -49,7 +40,6 @@ const config = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(pathsToClean, cleanOptions),
         new webpack.optimize.UglifyJsPlugin(),
         new ExtractTextPlugin('style.css'),
         new HtmlWebpackPlugin({

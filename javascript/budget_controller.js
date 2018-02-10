@@ -17,5 +17,5 @@ export default function budget() {
         }
     });
 
-    console.log('smamdfsdfs');
+    console.log('hello');
 };
