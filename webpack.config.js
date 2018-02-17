@@ -40,12 +40,15 @@ const config = {
         ]
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin(),
+        // new webpack.optimize.UglifyJsPlugin(),
         new ExtractTextPlugin('style.css'),
         new HtmlWebpackPlugin({
             template: 'src/index.html'
         })
     ],
+    resolve: {
+        modules: ['./javascript', './styles', 'node_modules']
+    },
     watch: true
 };
 
