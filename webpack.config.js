@@ -9,14 +9,20 @@ const config = {
     },
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: '[name].js'
+        filename: '[name].js',
+        publicPath: "build/"
     },
     module: {
         rules: [
             {
-                use: 'babel-loader',
                 test: /\.js$/,
-                exclude: /node_modules/
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['env']
+                    }
+                }
             },
             {
                 test: /\.css$/,
