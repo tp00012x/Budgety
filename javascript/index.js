@@ -1,2 +1,5 @@
-import 'style.css'
+//css
+import 'style.css';
+//javascript
 import 'budget_controller';
+import 'test';

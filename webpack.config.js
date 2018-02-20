@@ -3,14 +3,18 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
+const VENDOR_LIBS = [
+    'jquery', 'mustache'
+];
+
 const config = {
     entry: {
-        bundle: './javascript/index.js'
+        bundle: 'index.js',
+        vendor: VENDOR_LIBS
     },
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: '[name].js',
-        publicPath: "build/"
+        filename: '[name].[chunkhash].js',
     },
     module: {
         rules: [
@@ -36,9 +40,7 @@ const config = {
                 use: [
                     {
                         loader: 'url-loader',
-                        options: {
-                            limit: 40000
-                        }
+                        options: { limit: 40000 }
                     },
                     'image-webpack-loader'
                 ]
@@ -46,16 +48,21 @@ const config = {
         ]
     },
     plugins: [
-        // new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.CommonsChunkPlugin({
+            names: ['vendor', 'manifest']
+        }),
         new ExtractTextPlugin('style.css'),
         new HtmlWebpackPlugin({
             template: 'src/index.html'
+        }),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
         })
     ],
     resolve: {
         modules: ['./javascript', './styles', 'node_modules']
     },
-    watch: true
+    // watch: true
 };
 
 module.exports = config;
