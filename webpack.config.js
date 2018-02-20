@@ -2,6 +2,7 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 const VENDOR_LIBS = [
     'jquery', 'mustache'
@@ -10,7 +11,7 @@ const VENDOR_LIBS = [
 const config = {
     entry: {
         bundle: 'index.js',
-        vendor: VENDOR_LIBS
+        vendor: VENDOR_LIBS,
     },
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -57,12 +58,20 @@ const config = {
         }),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-        })
+        }),
+        new BrowserSyncPlugin({
+              host: 'localhost',
+              port: 8000,
+              proxy: 'http://localhost:8080/'
+            },
+            {
+              reload: false,
+              injectCss: true
+            })
     ],
     resolve: {
         modules: ['./javascript', './styles', 'node_modules']
-    },
-    // watch: true
+    }
 };
 
 module.exports = config;

@@ -6,14 +6,13 @@ const listTemplate = $lists.html();
 
 function addList(list) {
     $lists.append(Mustache.render(listTemplate, list));
-    console.log($lists);
 }
 
 $.ajax({
     type: 'GET',
-    url: '/income',
+    url: '/data',
     success: function (lists) {
-        $.each(lists, function (i, list) {
+        $.each(lists['income'], function (i, list) {
             addList(list);
         });
     }

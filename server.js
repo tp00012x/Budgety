@@ -1,11 +1,10 @@
 const express = require('express');
 const path = require('path');
-
 const app = express();
-const data = require('./income.json');
+const data = require('./data.json');
 
-app.get('/income', function (req, res) {
-    res.send(JSON.stringify(data));
+app.get('/data', function (req, res) {
+    res.send(data);
 });
 
 if (process.env.NODE_ENV !== 'production') {
