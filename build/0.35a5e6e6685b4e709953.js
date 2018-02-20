@@ -1,0 +1,1 @@
+webpackJsonp([0],{7:function(e,t,u){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=function(){console.log((0,o.default)(".budget__title"))};var n=u(0),o=function(e){return e&&e.__esModule?e:{default:e}}(n)}});
