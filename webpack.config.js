@@ -61,11 +61,11 @@ const config = {
         }),
         new BrowserSyncPlugin({
               host: 'localhost',
-              port: 8000,
-              proxy: 'http://localhost:8080/'
+              port: 3050,
+              proxy: 'http://localhost:3050/'
             },
             {
-              reload: false,
+              reload: true,
               injectCss: true
             })
     ],
