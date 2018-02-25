@@ -49,25 +49,22 @@ const config = {
         ]
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin({
-            names: ['vendor', 'manifest']
-        }),
+        new webpack.optimize.CommonsChunkPlugin({ names: ['vendor', 'manifest'] }),
         new ExtractTextPlugin('style.css'),
-        new HtmlWebpackPlugin({
-            template: 'src/index.html'
-        }),
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-        }),
-        new BrowserSyncPlugin({
-              host: 'localhost',
-              port: 3050,
-              proxy: 'http://localhost:3050/'
+        new HtmlWebpackPlugin({ template: 'src/index.html' }),
+        new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV) }),
+        new BrowserSyncPlugin(
+            {
+                host: 'localhost',
+                port: 3050,
+                proxy: 'http://localhost:3050/',
+                files: ['./src/*.html']
             },
             {
-              reload: true,
-              injectCss: true
-            })
+                reload: true,
+                injectCss: true
+            }
+        )
     ],
     resolve: {
         modules: ['./javascript', './styles', 'node_modules']
