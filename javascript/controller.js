@@ -18,6 +18,10 @@ export default (() => {
         $(DOM.inputButton).on('click', ctrlAddItem);
 
         $(DOM.container).on('click', ctrlDeleteItem);
+
+        $(DOM.inputType).on('change', UICtrl.changedType);
+
+        UICtrl.displayMonth();
     };
 
     const updateBudget = function () {
@@ -27,6 +31,16 @@ export default (() => {
         const budget = BudgetCtrl.getBudget();
 
         UICtrl.displayBudget(budget);
+
+    };
+
+    const updatePercentages = function () {
+
+        BudgetCtrl.calculatePercentages();
+
+        const percentages = BudgetCtrl.getPercentages();
+
+        UICtrl.displayPercentages(percentages);
 
     };
 
@@ -45,6 +59,8 @@ export default (() => {
             BudgetCtrl.calculateBudget();
 
             BudgetCtrl.testing();
+
+            updatePercentages();
         }
 
     };
@@ -63,6 +79,8 @@ export default (() => {
             UICtrl.deleteListItem(itemID);
 
             updateBudget();
+
+            updatePercentages();
         }
     };
 
