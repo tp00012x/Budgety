@@ -39,6 +39,6 @@
     "url": "https://github.com/tp00012x/Budgety/issues"
   },
   "dependencies": {
-    "browser-sync": "^2.23.6"
+    "browser-sync": "^2.27.10"
   }
 }
